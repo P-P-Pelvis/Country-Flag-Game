@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F671095A2F0D71AF00E1C0BB /* Country Flag Game */ = {
+		F67109672F0D738000E1C0BB /* Components */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Country Flag Game";
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		F671094F2F0D71AF00E1C0BB = {
 			isa = PBXGroup;
 			children = (
-				F671095A2F0D71AF00E1C0BB /* Country Flag Game */,
+				F67109672F0D738000E1C0BB /* Components */,
 				F67109592F0D71AF00E1C0BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F671095A2F0D71AF00E1C0BB /* Country Flag Game */,
+				F67109672F0D738000E1C0BB /* Components */,
 			);
 			name = "Country Flag Game";
 			packageProductDependencies = (
