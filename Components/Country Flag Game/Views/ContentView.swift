@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var gameManager = GameManager()
     var body: some View {
-        VStack {
-            Image(systemName: "World")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("")
+        NavigationView {
+            VStack(spacing: 40) {
+                VStack(spacing: 20) {
+                    Text("Country Flag Game")
+                        .font(.title)
+                        .fontWeight(.heavy)
+                    Text("Ready to test Ur Skillz")
+                }
+                NavigationLink {
+                    QuestionView()
+                        .environment(gameManager)
+                } label: {
+                    CustomButton(text: "Start")
+                }
+                .foregroundStyle(.yellow)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.cyan)
+            }
         }
-        .padding()
     }
 }
 
