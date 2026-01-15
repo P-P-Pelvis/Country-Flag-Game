@@ -22,16 +22,17 @@ class GameManager {
         reset()
     }
     func reset() {
+        loadQuestions()
         questions = questions.shuffled()
         index = 0
         score = 0
-        playingGame = true
         progress = 0.0
-        loadQuestions()
+        playingGame = true
+       goToNextQuestion()
     }
     func loadQuestions() {
         let countries = Data().countries
-        if countries.count > 4 {
+        if countries.count < 4 {
             print("There are only \(countries.count) countries listed in data(must be at least 4)")
         }
         else {
@@ -40,11 +41,11 @@ class GameManager {
                 if UIImage (named: country) != nil {
                     var incorrectAnswer = [String]()
                     while incorrectAnswer.count < 3 {
-                        if let randomCountry = countries.randomElement() {
-                            if randomCountry != country && !incorrectAnswer.contains(randomCountry) {
+                        if let randomCountry = countries.randomElement(),
+                             randomCountry != country,
+                            !incorrectAnswer.contains(randomCountry) {
                                 incorrectAnswer.append(randomCountry)
                             }
-                        }
                     }
                     questions.append(Question(correctAnswer: Answer(text: country, isCorrect: true),
                                               incorrectAnswer: [
@@ -62,7 +63,7 @@ class GameManager {
     func goToNextQuestion() {
         if index < questions.count {
             answerSelected = false
-            progress = CGFloat(index) / CGFloat(questions.count) * 350
+            progress = CGFloat(index) / CGFloat(questions.count) * 350.0
             let nextQuestion = questions[index]
             country = nextQuestion.correctAnswer.text
             answerChoice = ([nextQuestion.correctAnswer] + nextQuestion.incorrectAnswer).shuffled()

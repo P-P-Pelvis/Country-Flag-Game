@@ -24,10 +24,10 @@ struct ContentView: View {
                 } label: {
                     CustomButton(text: "Start")
                 }
+            }
                 .foregroundStyle(.yellow)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(.cyan)
-            }
         }
     }
 }

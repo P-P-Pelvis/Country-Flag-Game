@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AnswerRow: View {
-    @State private var gameManager = GameManager()
     var answer: Answer
+    @Environment(GameManager.self) var gameManager
     @State private var isSelected = false
     var body: some View {
         HStack(spacing: 20) {
@@ -19,7 +19,7 @@ struct AnswerRow: View {
                 .font(.title)
             if isSelected {
                 Spacer()
-                Image(systemName: answer.isCorrect ? "checkmark.square.fill" : "xmark.square.fill")
+                Image(systemName: answer.isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
                     .foregroundStyle(answer.isCorrect ? .green : .red)
             }
         }
